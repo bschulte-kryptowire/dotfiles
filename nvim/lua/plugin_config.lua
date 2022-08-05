@@ -135,7 +135,11 @@ require('lspconfig')['tsserver'].setup {
 }
 
 -- Theme
-require('onedark').setup {
-  style = 'deep'
-}
-require('onedark').load()
+vim.cmd 'syntax enable'
+vim.cmd 'colorscheme dracula'
+
+
+-- require('onedark').setup {
+--   style = 'deep'
+-- }
+-- require('onedark').load()

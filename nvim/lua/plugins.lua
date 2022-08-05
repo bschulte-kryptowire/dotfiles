@@ -67,6 +67,7 @@ Plug('mfussenegger/nvim-lint')
 
 -- Themes
 Plug('navarasu/onedark.nvim')
+Plug('dracula/vim', { as = 'dracula' })
 
 
 vim.call('plug#end')

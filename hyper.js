@@ -8,7 +8,7 @@ module.exports = {
         // or `'canary'` for less polished but more frequent updates
         updateChannel: 'stable',
         // default font size in pixels for all tabs
-        fontSize: 14,
+        fontSize: 15,
         // font family with optional fallbacks
         fontFamily: '"FiraCode Nerd Font", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
         // default font weight: 'normal' or 'bold'
@@ -95,7 +95,7 @@ module.exports = {
         shell: 'C:\\Windows\\System32\\wsl.exe',
         // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
         // by default `['--login']` will be used
-        shellArgs: [],
+        shellArgs: ['~'],
         // for environment variables
         env: {},
         // Supported Options:
@@ -130,6 +130,48 @@ module.exports = {
         // set to true to preserve working directory when creating splits or tabs
         preserveCWD: true,
         // for advanced config flags please refer to https://hyper.is/#cfg
+        paneNavigation: {
+          debug: false,
+          hotkeys: {
+            navigation: {
+              up: 'ctrl+k',
+              down: 'ctrl+j',
+              left: 'ctrl+h',
+              right: 'ctrl+l'
+            },
+            jump_prefix: 'ctrl+alt', // completed with 1-9 digits
+            permutation_modifier: 'shift', // Added to jump and navigation hotkeys for pane permutation
+            maximize: 'meta+enter'
+          },
+          showIndicators: false, // Show pane number
+          indicatorPrefix: '^⌥', // Will be completed with pane number
+          indicatorStyle: { // Added to indicator <div>
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            fontSize: '10px'
+          },
+          focusOnMouseHover: false,
+          inactivePaneOpacity: 0.5 // Set to 1 to disable inactive panes dimming
+        },
+        broadcast: {
+          debug: false,
+          hotkeys: {
+            selectCurrentPane: "Ctrl+Meta+Shift+I",
+            selectCurrentTabPanes: "Meta+Shift+I",
+            selectAllPanes: "Meta+Shift+B",
+            toggleCurrentPane: "Meta+Alt+Control+Shift+B"
+          },
+          indicatorStyle: {
+            position: "absolute",
+            top: 5,
+            right: 10,
+            borderRadius: "50%",
+            width: "10px",
+            height: "10px",
+            background: "red"
+        }
+      }
     },
     // a list of plugins to fetch and install from npm
     // format: [@org/]project[#version]
@@ -137,7 +179,14 @@ module.exports = {
     //   `hyperpower`
     //   `@company/project`
     //   `project#1.0.1`
-    plugins: [],
+    plugins: [
+      'hyper-blink',
+      'hyper-dracula',
+      'hyperterm-paste',
+      'hyper-pane',
+      'hyper-broadcast',
+      'hyperterm-dibdabs'
+    ],
     // in development, you can create a directory under
     // `~/.hyper_plugins/local/` and include it here
     // to load it and avoid it being `npm install`ed
@@ -145,6 +194,11 @@ module.exports = {
     keymaps: {
     // Example
     // 'window:devtools': 'cmd+alt+o',
+      "editor:paste": "ctrl+v",
+      "tab:next": "shift+meta+l",
+      "tab:prev": "shift+meta+h",
+      "pane:splitRight": "ctrl+shift+e",
+      "pane:splitDown": "ctrl+shift+o",
     },
 };
 //# sourceMappingURL=config-default.js.map

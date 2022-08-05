@@ -127,8 +127,32 @@ source /usr/share/doc/fzf/examples/completion.zsh
 alias e="explorer.exe"
 alias ezsh="nvim ~/.zshrc"
 alias szsh="source ~/.zshrc"
-alias evim="nvim ~/.config/nvim/init.lua"
+alias evim="cd ~/.config/nvim && nvim ."
 alias eht="nvim /mnt/c/Users/Brian/AppData/Roaming/Hyper/.hyper.js"
+
+## SSH Aliases
+alias sshapp2="ssh -l bschulte 10.82.21.22"
+alias sshapp2emm="ssh -l enterprise 10.82.21.22"
+alias sshemm1="ssh -l bschulte 10.82.21.11"
+alias sshemm2="ssh -l bschulte 10.82.21.12"
+alias sshemm3="ssh -l bschulte 10.82.21.13"
+alias sshemm4="ssh -l bschulte 10.82.21.14"
+alias sshemm5="ssh -l bschulte 10.82.21.15"
+alias sshemm6="ssh -l bschulte 10.82.21.16"
+
+alias sshemm1a="ssh -l androidanalysis 10.82.21.11"
+alias sshemm2a="ssh -l androidanalysis 10.82.21.12"
+alias sshemm3a="ssh -l androidanalysis 10.82.21.13"
+alias sshemm4a="ssh -l androidanalysis 10.82.21.14"
+alias sshemm5a="ssh -l androidanalysis 10.82.21.15"
+alias sshemm6a="ssh -l androidanalysis 10.82.21.16"
+
+alias sshemm1emm="ssh -l enterprise 10.82.21.11"
+alias sshemm2emm="ssh -l enterprise 10.82.21.12"
+alias sshemm3emm="ssh -l enterprise 10.82.21.13"
+alias sshemm4emm="ssh -l enterprise 10.82.21.14"
+alias sshemm5emm="ssh -l enterprise 10.82.21.15"
+alias sshemm6emm="ssh -l enterprise 10.82.21.16"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
