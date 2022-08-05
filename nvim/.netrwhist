@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/bschulte/.config/nvim'
+let g:netrw_dirhist_2='/home/bschulte/dev/emm-backend'
+let g:netrw_dirhist_1='/home/bschulte/dev/emm-pdf-report'
