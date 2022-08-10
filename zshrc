@@ -121,7 +121,7 @@ source /usr/share/doc/fzf/examples/completion.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # z.sh
-. ~/dev/z/z.sh
+. ~/repos/z/z.sh
 
 # Aliases
 alias e="explorer.exe"

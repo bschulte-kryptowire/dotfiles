@@ -12,9 +12,26 @@ if [ -d ~/.oh-my-zsh ]; then
 	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-echo "Getting spaceship theme"
-git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+if [ -e /home/bschulte/.oh-my-zsh/custom/themes/spaceship.zsh-theme ]; then
+	echo "Spaceship theme already installed"
+else
+	echo "Getting spaceship theme"
+	git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+	ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+fi
+
+# FZF
+sudo apt install -y fzf
+
+# Dropbox
+if [ -d ~/Dropbox ]; then
+	echo "Dropbox already installed"
+else
+	echo "Installing Dropbow..."
+	cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+fi
+
+
 
 # Update zshrc config
 echo "----------------------------------------------"
