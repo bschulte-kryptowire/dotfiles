@@ -31,6 +31,8 @@ else
 	cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 fi
 
+# Regolith packages
+sudo apt install -y regolith-compositor-picom-glx
 
 
 # Update zshrc config
