@@ -143,13 +143,15 @@ cp -rp nvim ~/.config
 sudo apt-get install openvpn unzip
 
 # Todoist
-sudo snap install todoist
+if ! command -v todoist &> /dev/null ;then
+  sudo snap install todoist
+fi
 
 # Docker
-if ! command -v docker &> /dev/null ;then
-  curl -fsSL https://get.docker.com -o get-docker.sh
-  sudo sh get-docker.sh
-fi
+# if ! command -v docker &> /dev/null ;then
+#   curl -fsSL https://get.docker.com -o get-docker.sh
+#   sudo sh get-docker.sh
+# fi
 
 # Node
 # NVM
@@ -165,4 +167,9 @@ if ! command -v go &> /dev/null ;then
   wget https://dl.google.com/go/${GO_FILE}
   sudo tar -C /usr/local/ -xzf ${GO_FILE}
   rm -rf ${GO_FILE}
+fi
+
+# Lazygit
+if ! command -v lazygit &> /dev/null ;then
+  go install github.com/jesseduffield/lazygit@latest
 fi
