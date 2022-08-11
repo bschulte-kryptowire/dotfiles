@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export PATH=$PATH:/usr/local/go/bin
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -153,6 +154,8 @@ alias sshemm3emm="ssh -l enterprise 10.82.21.13"
 alias sshemm4emm="ssh -l enterprise 10.82.21.14"
 alias sshemm5emm="ssh -l enterprise 10.82.21.15"
 alias sshemm6emm="ssh -l enterprise 10.82.21.16"
+
+alias officevpn="echo \"Username is: bschulte_vpn_otp\" && openvpn --config ~/Dropbox/Kryptowire/office.ovpn --daemon
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

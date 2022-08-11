@@ -102,6 +102,8 @@ if [ -d ~/Dropbox ]; then
 else
 	echo "Installing Dropbow..."
 	cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+  
+  ${HOME}/.dropbox-dist/dropboxd
 fi
 
 # Regolith packages
@@ -135,4 +137,32 @@ if ! command -v nvim &> /dev/null; then
 fi
 # Neovim - configuration
 mkdir -p ~/.config/nvim
-cp -rp nvim ~/.config/nvim
+cp -rp nvim ~/.config
+
+# OpenVPN
+sudo apt-get install openvpn unzip
+
+# Todoist
+sudo snap install todoist
+
+# Docker
+if ! command -v docker &> /dev/null ;then
+  curl -fsSL https://get.docker.com -o get-docker.sh
+  sudo sh get-docker.sh
+fi
+
+# Node
+# NVM
+if ! command -v node &> /dev/null ;then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+  source ${HOME}/.zshrc
+  nvm install v16
+fi
+
+# Go
+if ! command -v go &> /dev/null ;then
+  GO_FILE="go1.19.linux-amd64.tar.gz"
+  wget https://dl.google.com/go/${GO_FILE}
+  sudo tar -C /usr/local/ -xzf ${GO_FILE}
+  rm -rf ${GO_FILE}
+fi

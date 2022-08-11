@@ -10,4 +10,5 @@ cp ~/.zshrc zshrc
 # Base Xresources
 cp ~/.Xresources base_Xresources
 
+# regolith2
 cp -rp ~/.config/regolith2 regolith2
