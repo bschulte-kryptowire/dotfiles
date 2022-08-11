@@ -4,8 +4,10 @@
 cp -rp ~/.config/nvim .
 rm -rf nvim/plugged
 
-# Hyper term
-cp /mnt/c/Users/Brian/AppData/Roaming/Hyper/.hyper.js hyper.js
-
 # zsh
 cp ~/.zshrc zshrc
+
+# Base Xresources
+cp ~/.Xresources base_Xresources
+
+cp -rp ~/.config/regolith2 regolith2

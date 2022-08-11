@@ -1,5 +1,73 @@
 #!/bin/bash
 
+# https://gist.github.com/matthewjberger/7dd7e079f282f8138a9dc3b045ebefa0?permalink_comment_id=4005789#gistcomment-4005789
+download_nerd_fonts() {
+	declare -a fonts=(
+	    BitstreamVeraSansMono
+	    CodeNewRoman
+	    FiraMono
+	    Go-Mono
+	    Hack
+	    Hasklug
+	    Hermit
+	    Inconsolata
+	    JetBrainsMono
+	    Meslo
+	    Noto
+	    Overpass
+	    ProggyClean
+	    RobotoMono
+	    SourceCodePro
+	    SpaceMono
+	    Ubuntu
+	    UbuntuMono
+	)
+
+	if [ -e ~/.nerd-fonts-downloaded.txt ]; then
+		return
+	fi
+
+	version='2.1.0'
+	fonts_dir="${HOME}/.local/share/fonts"
+
+	if [[ ! -d "$fonts_dir" ]]; then
+	    mkdir -p "$fonts_dir"
+	fi
+
+	for font in "${fonts[@]}"; do
+	    zip_file="${font}.zip"
+	    download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
+	    echo "Downloading $download_url"
+	    wget "$download_url"
+	    unzip "$zip_file" -d "$fonts_dir"
+	    rm "$zip_file"
+	    sleep 2
+	done
+
+	find "$fonts_dir" -name '*Windows Compatible*' -delete
+
+	fc-cache -fv
+	# We write to this file as a marker that we've already downloaded these fonts
+	echo "downloaded" > ~/.nerd-fonts-downloaded.txt
+}
+
+build_and_install_neovim() {
+	echo "Building neovim..."	
+	# Install prereqs
+	sudo apt-get install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
+
+	if [ ! -d ~/repos/neovim ];then
+		git clone https://github.com/neovim/neovim ~/repos/neovim
+	fi
+
+	cd ~/repos/neovim
+	make CMAKE_BUILD_TYPE=RelWithDebInfo
+	sudo make install
+
+}
+
+####### START #######
+mkdir -p ~/repos
 ### Zsh
 ZSH_CUSTOM=/home/bschulte/.oh-my-zsh/custom
 
@@ -21,7 +89,12 @@ else
 fi
 
 # FZF
-sudo apt install -y fzf
+sudo apt install -y fzf &> /dev/null
+
+# z
+if [ ! -d ~/repos/z ];then
+	git clone https://github.com/rupa/z.git ~/repos/z
+fi
 
 # Dropbox
 if [ -d ~/Dropbox ]; then
@@ -32,11 +105,34 @@ else
 fi
 
 # Regolith packages
-sudo apt install -y regolith-compositor-picom-glx
+# Includes:
+#   - Compositor (nice graphics and animations)
+#   - Status indicators
+#   - Battery status
+sudo apt install -y regolith-compositor-picom-glx i3xrocks-rofication i3xrocks-memory i3xrocks-battery 
+# Looks (themes)
+sudo apt install regolith-look-ayu-dark regolith-look-blackhole regolith-look-dracula regolith-look-nord regolith-look-solarized-dark
 
+# Nerd Fonts
+download_nerd_fonts
 
 # Update zshrc config
 echo "----------------------------------------------"
 echo "Updating .zshrc config"
 cp ~/.zshrc ~/.zshrc-$(date +%s)
 cp zshrc ~/.zshrc
+
+# Xresources
+cp ~/.Xresources ~/.Xresources-$(date +%s)
+cp base_Xresources ~/.Xresources
+
+# Background
+cp ./material_1_bg.jpg ~/Pictures
+
+# Neovim
+if ! command -v nvim &> /dev/null; then
+	build_and_install_neovim
+fi
+# Neovim - configuration
+mkdir -p ~/.config/nvim
+cp -rp nvim ~/.config/nvim
