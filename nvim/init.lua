@@ -1,21 +1,7 @@
-require "user.options"
-require "user.keymaps"
-require "user.plugins"
-require "user.colorscheme"
-require "user.cmp"
-require "user.lsp"
-require "user.telescope"
-require "user.treesitter"
-require "user.autopairs"
-require "user.comment"
-require "user.gitsigns"
-require "user.nvim-tree"
-require "user.bufferline"
-require "user.lualine"
-require "user.toggleterm"
-require "user.project"
-require "user.impatient"
-require "user.indentline"
-require "user.alpha"
-require "user.whichkey"
-require "user.autocommands"
+-- example file i.e lua/custom/init.lua
+-- load your options globals, autocmds here or anything .__.
+-- you can even override default options here (core/options.lua)
+
+local map = require("core.utils").map
+
+map("n", "<leader>cc", "<cmd> Telescope <CR>")

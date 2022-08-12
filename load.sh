@@ -69,7 +69,7 @@ build_and_install_neovim() {
 ####### START #######
 
 # Generic packages/setup
-sudo apt install ripgrep
+sudo apt install ripgrep ranger
 mkdir -p ~/repos
 
 ### Zsh
@@ -140,8 +140,8 @@ if ! command -v nvim &> /dev/null; then
 	build_and_install_neovim
 fi
 # Neovim - configuration
-mkdir -p ~/.config/nvim
-cp -rp nvim ~/.config
+mkdir -p ~/.config/nvim/lua/custom
+cp -rp nvim ~/.config/nvim/lua
 
 # OpenVPN
 sudo apt-get install openvpn unzip

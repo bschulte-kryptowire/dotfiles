@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # NVIM
-cp -rp ~/.config/nvim .
-rm -rf nvim/plugged
+rm -rf nvim
+cp -rp ~/.config/nvim/lua/custom nvim
 
 # zsh
 cp ~/.zshrc zshrc

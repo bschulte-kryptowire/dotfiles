@@ -125,7 +125,7 @@ source /usr/share/doc/fzf/examples/completion.zsh
 . ~/repos/z/z.sh
 
 # Aliases
-alias e="explorer.exe"
+alias r="ranger"
 alias ezsh="nvim ~/.zshrc"
 alias szsh="source ~/.zshrc"
 alias evim="cd ~/.config/nvim && nvim ."
