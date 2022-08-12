@@ -67,7 +67,11 @@ build_and_install_neovim() {
 }
 
 ####### START #######
+
+# Generic packages/setup
+sudo apt install ripgrep
 mkdir -p ~/repos
+
 ### Zsh
 ZSH_CUSTOM=/home/bschulte/.oh-my-zsh/custom
 
@@ -172,4 +176,11 @@ fi
 # Lazygit
 if ! command -v lazygit &> /dev/null ;then
   go install github.com/jesseduffield/lazygit@latest
+fi
+
+# Touchegg (for touch gestures)
+if ! command -v touchegg &> /dev/null ;then
+  sudo add-apt-repository ppa:touchegg/stable
+  sudo apt update
+  sudo apt install touchegg
 fi
