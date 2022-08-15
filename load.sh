@@ -77,6 +77,7 @@ ZSH_CUSTOM=/home/bschulte/.oh-my-zsh/custom
 
 # on-my-zsh
 echo "----------------------------------------------"
+sudo apt install zsh
 if [ -d ~/.oh-my-zsh ]; then
 	echo "oh-my-zsh is installed"
  else
@@ -139,9 +140,14 @@ cp ./material_1_bg.jpg ~/Pictures
 if ! command -v nvim &> /dev/null; then
 	build_and_install_neovim
 fi
+# Install Nvchad
+if [ ! -d ~/.config/nvim ]; then
+	git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+fi
+
 # Neovim - configuration
 mkdir -p ~/.config/nvim/lua/custom
-cp -rp nvim ~/.config/nvim/lua
+cp -rp nvim/* ~/.config/nvim/lua/custom
 
 # OpenVPN
 sudo apt-get install openvpn unzip
@@ -183,6 +189,11 @@ if ! command -v go &> /dev/null ;then
   wget https://dl.google.com/go/${GO_FILE}
   sudo tar -C /usr/local/ -xzf ${GO_FILE}
   rm -rf ${GO_FILE}
+fi
+
+# Slack
+if ! command -v slack &> /dev/null ;then
+  sudo snap install slack
 fi
 
 # Lazygit
