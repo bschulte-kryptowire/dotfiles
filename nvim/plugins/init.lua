@@ -34,5 +34,6 @@ return {
     end,
   },
 
+  ["kdheepak/lazygit.nvim"] = {},
   ["kdheepak/lazygit.nvim"] = {}
 }
