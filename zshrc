@@ -129,7 +129,7 @@ alias r="ranger"
 alias ezsh="nvim ~/.zshrc"
 alias szsh="source ~/.zshrc"
 alias evim="cd ~/.config/nvim && nvim ."
-alias eht="nvim /mnt/c/Users/Brian/AppData/Roaming/Hyper/.hyper.js"
+alias lg="lazygit"
 
 ## SSH Aliases
 alias sshapp2="ssh -l bschulte 10.82.21.22"

@@ -7,7 +7,8 @@ M.disabled = { }
 M.my_namespace = {
   n = {
    ["<leader>we"] = { ":vsplit<cr>", "vertical split" },
-   ["<leader>wo"] = { ":split<cr>", "vertical split" }
+   ["<leader>wo"] = { ":split<cr>", "vertical split" },
+   ["<C-p>"] = { "<cmd> Telescope find_files <CR>", "find files" },
   },
 }
 
