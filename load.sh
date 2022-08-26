@@ -69,7 +69,7 @@ build_and_install_neovim() {
 ####### START #######
 
 # Generic packages/setup
-sudo apt install ripgrep ranger nitrogen
+sudo apt install ripgrep ranger nitrogen maim xclip build-essential
 mkdir -p ~/repos
 
 ### Zsh
