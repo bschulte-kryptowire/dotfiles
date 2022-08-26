@@ -201,6 +201,12 @@ if ! command -v lazygit &> /dev/null ;then
   go install github.com/jesseduffield/lazygit@latest
 fi
 
+# Postman
+if ! command -v postman &> /dev/null ;then
+  sudo snap install postman
+fi
+
+
 # Touchegg (for touch gestures)
 if ! command -v touchegg &> /dev/null ;then
   sudo add-apt-repository ppa:touchegg/stable
