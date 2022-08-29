@@ -69,7 +69,7 @@ build_and_install_neovim() {
 ####### START #######
 
 # Generic packages/setup
-sudo apt install ripgrep ranger nitrogen maim xclip
+sudo apt install ripgrep ranger nitrogen maim xclip build-essential
 mkdir -p ~/repos
 
 ### Zsh
@@ -198,6 +198,12 @@ fi
 if ! command -v lazygit &> /dev/null ;then
   go install github.com/jesseduffield/lazygit@latest
 fi
+
+# Postman
+if ! command -v postman &> /dev/null ;then
+  sudo snap install postman
+fi
+
 
 # Touchegg (for touch gestures)
 if ! command -v touchegg &> /dev/null ;then
