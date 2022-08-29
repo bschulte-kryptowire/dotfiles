@@ -2,7 +2,7 @@
 
 # NVIM
 rm -rf nvim
-cp -rp ~/.config/nvim/lua/custom nvim
+cp -rp ~/.config/nvim nvim
 
 # zsh
 cp ~/.zshrc zshrc
@@ -11,4 +11,5 @@ cp ~/.zshrc zshrc
 cp ~/.Xresources base_Xresources
 
 # regolith2
-cp -rp ~/.config/regolith2 regolith2
+rm -rf regolith2
+cp -rp ~/.config/regolith2 .

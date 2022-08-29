@@ -69,7 +69,7 @@ build_and_install_neovim() {
 ####### START #######
 
 # Generic packages/setup
-sudo apt install ripgrep ranger nitrogen
+sudo apt install ripgrep ranger nitrogen maim xclip
 mkdir -p ~/repos
 
 ### Zsh
@@ -119,6 +119,8 @@ fi
 sudo apt install -y regolith-compositor-picom-glx i3xrocks-rofication i3xrocks-memory i3xrocks-battery 
 # Looks (themes)
 sudo apt install regolith-look-ayu-dark regolith-look-blackhole regolith-look-dracula regolith-look-nord regolith-look-solarized-dark
+# Remove the i3-gaps-partial since we have ours backed up
+sudo apt remove regolith-i3-gaps-partial
 
 # Nerd Fonts
 download_nerd_fonts
@@ -140,14 +142,10 @@ cp ./material_1_bg.jpg ~/Pictures
 if ! command -v nvim &> /dev/null; then
 	build_and_install_neovim
 fi
-# Install Nvchad
-if [ ! -d ~/.config/nvim ]; then
-	git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-fi
 
 # Neovim - configuration
-mkdir -p ~/.config/nvim/lua/custom
-cp -rp nvim/* ~/.config/nvim/lua/custom
+mkdir -p ~/.config/nvim
+cp -rp nvim/* ~/.config/nvim
 
 # OpenVPN
 sudo apt-get install openvpn unzip
