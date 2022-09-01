@@ -28,6 +28,12 @@ gaps outer $i3-wm.gaps.outer.size
 set_from_resource $i3-wm.gaps.smart i3-wm.gaps.smart on
 smart_gaps $i3-wm.gaps.smart
 
+# Change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
 # Screenshots
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
 bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
