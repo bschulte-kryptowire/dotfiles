@@ -155,6 +155,8 @@ alias sshemm4emm="ssh -l enterprise 10.82.21.14"
 alias sshemm5emm="ssh -l enterprise 10.82.21.15"
 alias sshemm6emm="ssh -l enterprise 10.82.21.16"
 
+alias sshdo="ssh -l bschulte 204.48.21.24"
+
 alias officevpn="echo \"Username is: bschulte_vpn_otp\" && openvpn --config ~/Dropbox/Kryptowire/office.ovpn --daemon"
 
 export NVM_DIR="$HOME/.nvm"
